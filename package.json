@@ -2,6 +2,9 @@
   "name": "frontend",
   "private": true,
   "version": "0.0.0",
+  "engines": {
+    "node": "16.13.1"
+  },
   "scripts": {
     "start": "node server.js",
     "dev": "vite",
@@ -34,6 +37,9 @@
     "eslint-plugin-jsx-a11y": "^6.5.1",
     "eslint-plugin-react": "^7.30.0",
     "eslint-plugin-react-hooks": "^4.5.0",
+    "express": "^4.18.1",
+    "express-favicon": "^2.0.1",
+    "path": "^0.12.7",
     "typescript": "^4.6.3",
     "vite": "^2.9.9"
   }
