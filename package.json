@@ -6,10 +6,10 @@
     "node": "16.13.1"
   },
   "scripts": {
-    "start": "vite --host 0.0.0.0",
-    "dev": "vite --host 0.0.0.0",
+    "start": "vite",
+    "dev": "vite",
     "build": "tsc && vite build",
-    "preview": "vite preview"
+    "serve": "vite preview"
   },
   "dependencies": {
     "axios": "^0.27.2",
@@ -19,7 +19,8 @@
     "react-dom": "^18.0.0",
     "react-icons": "^4.3.1",
     "react-router-dom": "^6.3.0",
-    "sass": "^1.52.1"
+    "sass": "^1.52.1",
+    "vite": "^2.9.9"
   },
   "devDependencies": {
     "@types/axios": "^0.14.0",
