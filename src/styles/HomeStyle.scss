@@ -1,0 +1,64 @@
+.container-resumo {
+    width: 70%;
+    height: 20vh;
+    margin: 0 auto;
+    
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background-color: rgb(214, 214, 214);
+
+    div {
+        width: 90%;
+        margin: 0 auto;
+
+        a {
+            font-size: 20px;
+            font-weight: 700;
+            text-align: center;
+        }
+
+        p {
+            font-size: 18px;
+            padding-top: 20px;
+            font-weight: 400;
+            text-align: justify;
+        }
+    }
+}
+
+.container-video {
+    width: 70%;
+    height: 60vh;
+    margin: 0 auto;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background-color: rgb(214, 214, 214);
+}
+
+.container-informacoes {
+    width: 70%;
+    height: 55vh;
+    margin: 0 auto;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+
+    background-color: rgb(214, 214, 214);   
+}
+
+.container-grafico {
+    width: 65%;
+    margin: 0 auto;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background-color: white;
+}

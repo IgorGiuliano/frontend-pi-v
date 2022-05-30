@@ -1,0 +1,88 @@
+.container-registro {
+    width: 75%;
+    height: 100%;
+    margin: 0 auto;
+
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+
+    text-align: center;
+
+    h1 {
+        font-size: 36px;
+        color: rgba(255, 255, 255, 1);
+        padding: 30px;
+    }
+
+    form {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+
+        div {
+            display: flex;
+            width: 100%;
+            align-items: center;
+            justify-content: center;
+
+
+            div {
+                width: 50%;
+                padding-bottom: 15px;
+
+                .mediumInput {
+                    width: 340px;
+                    height: 50px;
+
+                    border-radius: 15px;
+                    border-style: none;
+
+                    margin-right: 2.5px;
+                    margin-left: 2.5px;
+
+                    text-align: center;
+                }
+
+                .smallInput {
+                    width: 168px;
+                    height: 50px;
+
+                    margin-right: 2.5px;
+                    margin-left: 2.5px;
+
+                    border-radius: 15px;
+                    border-style: none;
+
+                    text-align: center;
+                }
+
+            }
+
+        }
+
+        button {
+            width: 340px;
+            height: 50px;
+
+            margin-top: 15px;
+
+            font-size: 20px;
+            font-weight: 700;
+            text-align: center;
+
+            color: rgba(255, 255, 255, 1);
+
+            border-radius: 15px;
+            border-style: none;
+            background-color: rgba(152, 192, 143, 0.8);
+
+            &:hover {
+                cursor: pointer;
+            }
+        }
+    }
+}

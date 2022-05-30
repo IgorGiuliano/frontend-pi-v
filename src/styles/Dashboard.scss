@@ -1,0 +1,242 @@
+.main {
+    display: flex;
+}
+
+.wrapper-main {
+    height: 85vh;
+    width: 80%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+    background-color: rgb(211, 211, 211);
+
+    .cacamba-mais-carregada {
+        height: 40%;
+        width: 90%;
+        margin: 0 auto;
+
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: justify;
+
+
+        .align {
+            width: 80%;
+            height: 100%;
+            margin: 0 auto;
+
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+
+            div {
+                width: 40%;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+
+
+                span {
+                    font-size: 20px;
+                    font-weight: 500;
+                    margin-top: 30px;
+                    text-align: justify;
+                }
+            }
+        }
+    }
+
+    .total-de-lixo {
+        height: 50%;
+        width: 90%;
+        margin: 0 auto;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+
+        div {
+            width: 70%;
+            height: 100%;
+        }
+    }
+
+}
+
+.wrapper-aside {
+    height: 85vh;
+    width: 20%;
+
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-direction: column;
+
+    border-right: solid 1px;
+}
+
+.header-aside {
+    width: 100%;
+    height: 10%;
+    margin: 0 auto;
+
+    background-color: rgb(145, 145, 145);
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    border-bottom: solid 1px;
+
+    span {
+        padding: 15px;
+        color: aliceblue;
+
+        a {
+            padding: 3px;
+            color: inherit;
+            cursor: pointer;
+        }
+    }
+}
+
+.main-aside {
+    width: 100%;
+    height: 90%;
+    margin: 0 auto;
+
+    overflow-y: scroll;
+
+    ul {
+
+        .items {
+            width: 100%;
+            height: 5vh;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            padding: 20px;
+            align-items: center;
+            background-color: rgb(233, 233, 233);
+            border-bottom: solid 1px;
+
+
+            a {
+                color: inherit;
+
+                &:hover {
+                    cursor: pointer;
+                }
+            }
+        }
+    }
+
+    &::-webkit-scrollbar {
+        width: 15px;
+    }
+
+    /* Track */
+    &::-webkit-scrollbar-track {
+        background-color: rgb(236, 236, 236);
+    }
+
+    /* Handle */
+    &::-webkit-scrollbar-thumb {
+        background: white;
+        border-radius: 10px;
+    }
+
+}
+
+#modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+
+
+    .modal-main {
+        position: fixed;
+        background: white;
+        width: 50%;
+        height: auto;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+
+        .modal-top-container {
+            height: 5vh;
+            display: flex;
+            align-items: center;
+            margin-left: 15px;
+
+            a {
+                &:hover {
+                    cursor: pointer;
+                }
+            }
+        }
+
+        .modal-form-container {
+            height: 40vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: black;
+
+            form {
+                height: 100%;
+                width: 80%;
+
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+
+                input {
+                    width: 340px;
+                    height: 50px;
+                    margin: 1%;
+
+                    border-width: 0;
+                    border-style: none;
+                    border-radius: 10px;
+                    background-color: rgb(224, 224, 224);
+                    text-align: center;
+                }
+
+                button {
+                    width: 340px;
+                    height: 50px;
+                    margin: 1%;
+
+                    border-width: 0;
+                    border-style: none;
+                    border-radius: 10px;
+                    background-color: rgba(152, 192, 143, 0.8);
+
+                    &:hover {
+                        cursor: pointer;
+                    }
+                }
+            }
+        }
+    }
+
+}
+
+.show {
+    display: block;
+}
+
+.hide {
+    display: none;
+}

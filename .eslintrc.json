@@ -1,0 +1,86 @@
+{
+    "env": {
+        "browser": true,
+        "es2021": true
+    },
+    "extends": [
+        "plugin:react/recommended",
+        "airbnb"
+    ],
+    "parser": "@typescript-eslint/parser",
+    "parserOptions": {
+        "ecmaFeatures": {
+            "jsx": true
+        },
+        "ecmaVersion": "latest",
+        "sourceType": "module"
+    },
+    "plugins": [
+        "react",
+        "@typescript-eslint"
+    ],
+    "rules": {
+        "import/extensions": [
+            "error",
+            "ignorePackages",
+            {
+              "js": "never",
+              "jsx": "never",
+              "ts": "never",
+              "tsx": "never"
+            }
+         ],
+         "react/jsx-filename-extension": [ 
+            "warn", 
+            {
+                "extensions": 
+                [".tsx"]
+            }
+        ],
+        "max-len": [
+            "error",
+            180
+        ],
+        "comma-dangle": [
+            "error",
+            "never"
+        ],
+        "indent": [
+            "error", 
+            4
+        ],
+        "react/jsx-indent": [
+            "error", 
+            4
+        ],
+        "react/jsx-indent-props": [
+            "error", 
+            4
+        ],
+        "no-console": [
+            "error",
+            {
+                "allow": [
+                    "log", 
+                    "warn", 
+                    "error"
+                ] 
+            }
+        ],
+        "no-unused-vars": "warn",
+        "linebreak-style": "off",
+        "react/button-has-type": "off",
+        "react/function-component-definition": [
+            2,
+            {
+              "namedComponents": "function-declaration"
+            }
+          ],
+        "@typescript-eslint/explicit-function-return-type": "off"
+    },
+    "settings": {
+        "import/resolver": {
+            "typescript": {}
+        }
+    }
+}
