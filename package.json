@@ -6,7 +6,7 @@
     "node": "16.13.1"
   },
   "scripts": {
-    "start": "node server.js",
+    "start": "node ./src/server.js",
     "dev": "vite",
     "build": "tsc && vite build",
     "preview": "vite preview"
