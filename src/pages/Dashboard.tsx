@@ -195,7 +195,7 @@ export default function Dashboard() {
                 </a>
                 <ul>
                     <li>
-                        <a href="/profile">
+                        <a href="/#">
                             <FaUserAlt
                                 size="24px"
                             />
