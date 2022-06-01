@@ -1,6 +1,7 @@
 /* eslint-disable no-alert */
 import React, { FormEvent, useState } from 'react';
 import { FaUserAlt } from 'react-icons/fa';
+import { useNavigate } from 'react-router-dom';
 import api from '../services/api';
 import '../styles/RegisterStyle.scss';
 
@@ -16,10 +17,31 @@ export default function Register() {
     const [cnpjDaInstituicao] = useState('03.603.739/0001-86');
     const [nomeDaInstituicao] = useState('Servico Nacional de Aprendizagem Comercial - Senac');
     const [tipoDeInstituicao] = useState('Instituição de Ensino');
+    const navigate = useNavigate();
 
     async function signIn(event: FormEvent) {
         event.preventDefault();
         email.toLocaleLowerCase();
+        console.log({
+            name,
+            lastName,
+            email,
+            cpf,
+            password,
+            passwordConfirmation,
+            cargo,
+            cnpjDaInstituicao,
+            nomeDaInstituicao
+        });
+
+        email.toLocaleLowerCase();
+
+        const passwordREGEX: RegExp = /^(?=.*[A-Z])(?=.*[!#@$%&-_])(?=.*[0-9])(?=.*[a-z]).{6,20}$/;
+
+        if (!password.match(passwordREGEX)) {
+            // eslint-disable-next-line max-len
+            window.alert('Senha inválida, favor inserir uma senha com o seguinte padrão: 6 a 20 caracteres, pelo menos 1 número, pelo menos 1 maiúscula, pelo menos 1 minúcula, e pelo menos 1 caractere especial ( !#@$%&-_ )');
+        }
 
         const response = await api.post(
             '/register-user',
@@ -29,12 +51,18 @@ export default function Register() {
                 email,
                 cpf,
                 password,
+                passwordConfirmation,
                 cargo,
                 cnpjDaInstituicao,
                 nomeDaInstituicao
             }
         );
-        console.log(response);
+
+        if (response.data.registered) {
+            navigate('/login');
+        } else {
+            window.alert(`Ocorreu um erro: ${response.data.Error}`);
+        }
     }
 
     return (

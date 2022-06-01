@@ -36,7 +36,6 @@ export default function Login() {
                 'email': email,
                 'password': password
             });
-            console.log(signed);
         }
     }
 

@@ -17,7 +17,6 @@ import {
 } from 'chart.js';
 import { Line } from 'react-chartjs-2';
 import { useAuth } from '../contexts/auth';
-import Graph from '../components/Graph';
 import '../styles/Dashboard.scss';
 import api from '../services/api';
 
@@ -56,13 +55,48 @@ export default function Dashboard() {
     const [hour, setHour] = useState('');
     const [deviceName, setDeviceName] = useState('');
     const [weight, setWeight] = useState('');
+    const [weightGraph, setWeightGraph] = useState([]);
+    const [hourGraph, setHourGraph] = useState([]);
+
+    const options = {
+        responsive: true,
+        maintainAspectRatio: true,
+        plugins: {
+            legend: {
+                position: 'top' as const
+            },
+            title: {
+                display: true,
+                text: 'Peso ao longo do tempo'
+            }
+        },
+        elements: {
+            point: {
+                radius: 4
+            },
+            line: {
+                tension: 0.4
+            }
+        }
+    };
+
+    const data = {
+        labels: hourGraph,
+        datasets: [
+            {
+                label: 'Peso',
+                data: weightGraph,
+                backgroundColor: 'rgba(255, 99, 132, 1)'
+            }
+        ]
+    };
 
     async function findUserSensors(id: object) {
         const result = await api.get('/get-user-sensors', id);
         setSensors(result.data);
     }
 
-    async function getSensorData() {
+    async function getSensorLatestData() {
         if (getSensor !== '') {
             api.defaults.headers.common.Authorization = storagedToken;
             const result = await api.post('/last-message', { deviceId: getSensor });
@@ -71,11 +105,12 @@ export default function Dashboard() {
             if (sensorData?.createdAt !== undefined && sensorData?.createdAt !== null
                 && sensorData?.deviceId !== undefined && sensorData?.deviceId !== null
                 && sensorData?.weight !== undefined && sensorData?.weight !== null) {
-                const dia = new Date(sensorData.createdAt).getDate();
-                const month = new Date(sensorData.createdAt).getMonth();
-                const year = new Date(sensorData.createdAt).getFullYear();
-                const hora = new Date(sensorData.createdAt).getHours();
                 const min = new Date(sensorData.createdAt).getMinutes();
+                const hora = new Date(sensorData.createdAt).getHours();
+                const month = new Date(sensorData.createdAt).getMonth();
+                const dia = new Date(sensorData.createdAt).getDate();
+                const year = new Date(sensorData.createdAt).getFullYear();
+
                 setHour(`${hora}:${min} horas`);
                 setDate(`${dia} / ${month + 1} / ${year}`);
                 setDeviceName(sensorData.deviceId);
@@ -105,6 +140,31 @@ export default function Dashboard() {
         }
     }
 
+    async function getDataForTheGraph() {
+        if (getSensor !== '') {
+            const result = await api.post('/last-seven-messages', { deviceId: getSensor });
+            const dados = result.data;
+            const peso = [];
+            const hora = [];
+
+            dados.map((dado) => {
+                peso.push(dado.weight);
+
+                const jikan = new Date(dado.createdAt).getHours();
+                const bun = new Date(dado.createdAt).getMinutes();
+                const byo = new Date(dado.createdAt).getSeconds();
+
+                hora.push(`${jikan}:${bun}:${byo}`);
+                return null;
+            });
+
+            peso.reverse();
+            hora.reverse();
+            setHourGraph(hora);
+            setWeightGraph(peso);
+        }
+    }
+
     useEffect(() => {
         const auxUser = sessionStorage.getItem('@App:cod');
         const auxToken = sessionStorage.getItem('@App:token');
@@ -120,7 +180,8 @@ export default function Dashboard() {
     useEffect(() => {
         const interval = setInterval(() => {
             findUserSensors({ id: storagedUser });
-            getSensorData();
+            getSensorLatestData();
+            getDataForTheGraph();
         }, 2000);
 
         return () => clearInterval(interval);
@@ -277,11 +338,18 @@ export default function Dashboard() {
                         </div>
                     </div>
                     <div className="total-de-lixo">
-                        {/* <div className="container-grafico">
+                        <div className="container-grafico">
                             <div>
-                                <Graph />
+                                <Line
+                                    data={
+                                        data
+                                    }
+                                    options={
+                                        options
+                                    }
+                                />
                             </div>
-                        </div> */}
+                        </div>
                     </div>
                 </div>
             </main>

@@ -47,7 +47,6 @@ export const AuthProvider: React.FunctionComponent<BaseLayoutProps> = ({ childre
             window.alert(`Ocorreu um erro: ${response.data.Error}`);
         } else {
             setUser(response.data.user);
-            console.log(response.data);
             api.defaults.headers.common.Authorization = `Bearer ${response.data.logged.token}`;
             sessionStorage.setItem('@App:cod', response.data.logged.data.id);
             sessionStorage.setItem('@App:token', response.data.logged.token);
