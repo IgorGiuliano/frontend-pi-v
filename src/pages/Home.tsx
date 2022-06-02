@@ -35,7 +35,7 @@ export default function Home() {
                 </div>
                 <div className="container-video">
                     <YouTube
-                        videoId="CbY7TA5y5aU"
+                        videoId="bPSlLHnN1Ac"
                     />
                 </div>
                 <div className="container-informacoes">
