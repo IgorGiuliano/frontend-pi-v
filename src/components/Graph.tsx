@@ -60,7 +60,7 @@ export default function Graph() {
     };
 
     async function getDataForTheGraph() {
-        const result = await api.post('/last-seven-messages', { deviceId: 'ESP12-001' });
+        const result = await api.post('/last-seven-messages', { deviceId: 'LoRaBalance_001' });
         const dados = result.data;
         const peso = [];
         const hora = [];
