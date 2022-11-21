@@ -47,7 +47,7 @@ export default function Login() {
         <div className="wrapper">
             <header>
                 <a href="/">
-                    Projeto Integrador V
+                    Projeto Integrador VI
                 </a>
                 <ul>
                     <li>
@@ -68,7 +68,7 @@ export default function Login() {
                             </h1>
                             <input
                                 type="email"
-                                placeholder="Digite seu email"
+                                placeholder="E-mail"
                                 value={email}
                                 onChange={
                                     (event) => setEmail(event.target.value)
@@ -77,7 +77,7 @@ export default function Login() {
                             />
                             <input
                                 type="password"
-                                placeholder="Digite sua senha"
+                                placeholder="Senha"
                                 value={password}
                                 onChange={
                                     (event) => setPass(event.target.value)
@@ -87,6 +87,7 @@ export default function Login() {
                             <button type="submit">
                                 Entrar
                             </button>
+                            <a href="/login">Esqueci minha senha</a>
                         </form>
                     </div>
                     <div className="container-register">
@@ -106,9 +107,7 @@ export default function Login() {
                     </div>
                 </div>
             </main>
-            <footer>
-                @IgorGiuliano - 2022
-            </footer>
+            <footer />
         </div>
     );
 }

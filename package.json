@@ -12,6 +12,8 @@
     "serve": "vite preview"
   },
   "dependencies": {
+    "@tomtom-international/web-sdk-maps": "^6.21.3",
+    "@tomtom-international/web-sdk-services": "^6.21.3",
     "axios": "^0.27.2",
     "chart.js": "^3.7.1",
     "react": "^18.0.0",
@@ -24,6 +26,7 @@
   },
   "devDependencies": {
     "@types/axios": "^0.14.0",
+    "@types/node": "^18.11.9",
     "@types/react": "^18.0.0",
     "@types/react-dom": "^18.0.0",
     "@types/react-router": "^5.1.18",

@@ -69,7 +69,7 @@ export default function Register() {
         <div className="wrapper">
             <header>
                 <a href="/">
-                    Projeto Integrador V
+                    Projeto Integrador VI
                 </a>
                 <ul>
                     <li>
@@ -86,7 +86,7 @@ export default function Register() {
                     <div className="container-registro">
                         <form onSubmit={signIn} id="form">
                             <h1>
-                                Registrar
+                                Registre-se
                             </h1>
                             <div>
                                 <div className="align">
@@ -231,9 +231,7 @@ export default function Register() {
                     </div>
                 </div>
             </main>
-            <footer>
-                @IgorGiuliano - 2022
-            </footer>
+            <footer />
         </div>
     );
 }

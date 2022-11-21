@@ -9,7 +9,7 @@ export default function Home() {
         <div className="wrapper">
             <header>
                 <a href="/">
-                    Projeto Integrador V
+                    Projeto Integrador VI
                 </a>
                 <ul>
                     <li>
@@ -27,7 +27,7 @@ export default function Home() {
 
                         <h1>Dispositivo para mensurar o peso de resíduos sólidos em lixeiras e caçambas</h1>
                         <p>
-                            O projeto foi desenvolvido na disciplina “Projeto Integrador V”, do curso de engenharia da computação do Centro Universitário Senac, com o
+                            O projeto foi desenvolvido na disciplina “Projeto Integrador VI”, do curso de engenharia da computação do Centro Universitário Senac, com o
                             objetivo de criar um dispositivo capaz de identificar a alocação de resíduos sólidos em uma lixeira ou caçamba, e através do WiFi se
                             comunicar com uma aplicação que facilite o acompanhamento do descarte de resíduos sólidos.
                         </p>
@@ -44,9 +44,7 @@ export default function Home() {
                     </div>
                 </div>
             </main>
-            <footer>
-                @IgorGiuliano - 2022
-            </footer>
+            <footer />
         </div>
     );
 }

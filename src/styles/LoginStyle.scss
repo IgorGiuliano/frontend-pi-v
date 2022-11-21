@@ -43,7 +43,14 @@
 
             font-size: 14px;
             font-weight: 300;
-            text-align: center;
+            text-align: justify;
+            padding: 15px;
+        }
+
+        a {
+            text-decoration: none;
+            color: white;
+            font-weight: 500;
         }
 
         button {

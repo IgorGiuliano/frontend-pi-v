@@ -19,6 +19,7 @@ import { Line } from 'react-chartjs-2';
 import { useAuth } from '../contexts/auth';
 import '../styles/Dashboard.scss';
 import api from '../services/api';
+import Map from '../components/MapModelOne';
 
 ChartJS.register(
     CategoryScale,
@@ -165,6 +166,7 @@ export default function Dashboard() {
         }
     }
 
+    // LOGOUT
     useEffect(() => {
         const auxUser = sessionStorage.getItem('@App:cod');
         const auxToken = sessionStorage.getItem('@App:token');
@@ -177,12 +179,19 @@ export default function Dashboard() {
         }
     });
 
+    // RETRIEVE DATA
     useEffect(() => {
         const interval = setInterval(() => {
+            const deviceButton = window.document.getElementById(deviceName);
+
+            if (deviceButton !== null) {
+                deviceButton.style.backgroundColor = 'rgb(227, 199, 197)';
+            }
+
             findUserSensors({ id: storagedUser });
             getSensorLatestData();
             getDataForTheGraph();
-        }, 2000);
+        }, 1000);
 
         return () => clearInterval(interval);
     });
@@ -191,7 +200,7 @@ export default function Dashboard() {
         <div className="wrapper">
             <header>
                 <a href="/">
-                    Projeto Integrador V
+                    Projeto Integrador VI
                 </a>
                 <ul>
                     <li>
@@ -276,7 +285,7 @@ export default function Dashboard() {
                             {
                                 sensors.map(
                                     (sensor) => (
-                                        <li className="items" key={sensor.deviceId}>
+                                        <li className="items" id={sensor.deviceId} key={sensor.deviceId}>
                                             <a
                                                 role="button"
                                                 onClick={
@@ -305,57 +314,55 @@ export default function Dashboard() {
                     </div>
                 </div>
                 <div className="wrapper-main">
-                    <div className="cacamba-mais-carregada">
-                        <div className="align">
-                            <div>
-                                <span>
-                                    <strong>Nome do dispositivo: </strong>
-                                    {
-                                        deviceName
-                                    }
-                                </span>
-                                <span>
-                                    <strong>Última medição: </strong>
-                                    {
-                                        weight
-                                    }
-                                </span>
-                            </div>
-                            <div>
-                                <span>
-                                    <strong>Data da última medição: </strong>
-                                    {
-                                        date
-                                    }
-                                </span>
-                                <span>
-                                    <strong>Hora da última medição: </strong>
-                                    {
-                                        hour
-                                    }
-                                </span>
-                            </div>
-                        </div>
+                    <div className="collectedInfo">
+                        {
+                            deviceName !== ''
+                                ? (
+                                    <div>
+                                        <div className="cacamba-mais-carregada">
+                                            <div className="align">
+                                                <table>
+                                                    <thead className="table-head">
+                                                        <tr>
+                                                            <th>Data da última medição:</th>
+                                                            <th>Hora da última medição:</th>
+                                                            <th>Última medição:</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <tr>
+                                                            <td>{date}</td>
+                                                            <td>{hour}</td>
+                                                            <td>{weight}</td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                        <div className="total-de-lixo">
+                                            <div className="container-grafico">
+                                                <Line
+                                                    data={
+                                                        data
+                                                    }
+                                                    options={
+                                                        options
+                                                    }
+                                                />
+                                            </div>
+                                        </div>
+                                    </div>
+                                ) : (<div className="cacamba-mais-carregada" />)
+                        }
                     </div>
-                    <div className="total-de-lixo">
-                        <div className="container-grafico">
-                            <div>
-                                <Line
-                                    data={
-                                        data
-                                    }
-                                    options={
-                                        options
-                                    }
-                                />
-                            </div>
-                        </div>
+                    <div className="mapInformation">
+                        {
+                            deviceName !== '' ? <Map /> : <div />
+                        }
                     </div>
                 </div>
             </main>
-            <footer>
-                @IgorGiuliano - 2022
-            </footer>
+            <footer />
         </div>
     );
 }

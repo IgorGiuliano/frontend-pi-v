@@ -1,0 +1,30 @@
+  .app {
+    display: flex;
+    height: 100%;
+    width: 90%;
+    margin: 0 auto;
+    align-items: center;
+    justify-content: center;
+  }
+
+  #map {
+    height: 100%;
+    width: 100%;
+    border: 1px solid rgb(0, 0, 0);
+    border-radius: 50px;
+  }
+
+  .marker {
+    width: 10px;
+    height: 10px;
+    border: solid 1px orange;
+  }
+
+
+  .marker-delivery {
+    background-image: url('../assets/img/marker.png');
+    background-size: cover;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+  }

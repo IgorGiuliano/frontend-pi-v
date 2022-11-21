@@ -40,7 +40,7 @@ export default function Graph() {
         },
         elements: {
             point: {
-                radius: 4
+                radius: 2
             },
             line: {
                 tension: 0.4
@@ -85,7 +85,7 @@ export default function Graph() {
     useEffect(() => {
         const interval = setInterval(() => {
             getDataForTheGraph();
-        }, 2000);
+        }, 1000);
 
         return () => clearInterval(interval);
     }, []);
